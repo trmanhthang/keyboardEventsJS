@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Event</title>
+</head>
+<body onload="goReady()">
+    <img id="nobita" src="https://upload.wikimedia.org/wikipedia/vi/2/2c/Nobita.png" alt="" style="height: 300px; position: absolute; left: 0px; top: 0px">
+</body>
+
+<script>
+    function upPress() {
+        let element = document.getElementById('nobita');
+        element.style.top = parseInt(element.style.top) - 5 + 'px';
+    }
+
+    function downPress() {
+        let element = document.getElementById('nobita');
+        element.style.top = parseInt(element.style.top) + 5 + 'px';
+    }
+
+    function leftPress() {
+        let element = document.getElementById('nobita');
+        element.style.left = parseInt(element.style.left) - 5 + 'px';
+    }
+
+    function rightPress() {
+        let element = document.getElementById('nobita');
+        element.style.left = parseInt(element.style.left) + 5 + 'px';
+    }
+
+    function move(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                leftPress();
+                break;
+            case 38:
+                upPress();
+                break;
+            case 39:
+                rightPress();
+                break;
+            case 40:
+                downPress();
+                break;
+        }   
+    }
+
+    function goReady() {
+        window.addEventListener('keydown', move);
+    }
+</script>
+</html>
